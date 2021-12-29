@@ -3,7 +3,7 @@
     display: grid;
     justify-content: center;
     align-content: center;
-    gap: 100px;
+    gap: 30px;
     grid-auto-flow: column;
     margin: 150px;
 }

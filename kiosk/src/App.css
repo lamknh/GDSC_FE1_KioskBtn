@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
   display: grid;
   justify-content: center;
@@ -6,7 +6,7 @@
   gap: 100px;
   grid-auto-flow: column;
   margin: 150px;
-}
+} */
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
