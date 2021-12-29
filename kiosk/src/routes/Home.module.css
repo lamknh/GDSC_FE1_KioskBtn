@@ -1,0 +1,9 @@
+.home{
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    gap: 100px;
+    grid-auto-flow: column;
+    margin: 150px;
+}
