@@ -1,10 +1,10 @@
-import Inputter from "../components/Inputter.js";
+import InputterContainer from "../containers/InputterContainer";
 import styles from "./Home.module.css";
 
-function Home(){
+const Home = () => {
     return(
         <div className={styles.home}>
-            <Inputter />
+            <InputterContainer />
         </div>
     );
 }

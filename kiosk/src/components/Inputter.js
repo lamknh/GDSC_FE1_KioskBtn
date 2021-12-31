@@ -1,52 +1,17 @@
-import { useEffect, useState } from "react";
 import { Button } from '@mui/material';
+import PropTypes from 'prop-types';
 import style from './Inputter.module.css';
 import styled from "styled-components";
-import { useHistory } from 'react-router-dom';
+import ReactRouterPropTypes from 'react-router-prop-types';
 
 const StyledButton = styled(Button)`
     background-color: #FFC300;
     color: #000000;
 `;
 
-function InputterPresenter() {
-    const [type, setTyping] = useState("");
-    const [isActive, setActive] = useState(true);
-
-    let history = useHistory();
-
-    const phoneNumber = (num) => {
-        const regex = /^[0-9\b -]{0,13}$/;
-        if (regex.test(type + num)) {
-            setTyping(type + num)
-        }
-    }
-
-    useEffect(() => {
-        if (type.length === 10) {
-            setTyping(type.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3'));
-        }
-        if (type.length === 13) {
-          setTyping(type.replace(/-/g, '').replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3'));
-        }
-        if(type.length < 12){
-            setActive(true);
-        } else {
-            setActive(false);
-        }
-      }, [type]);
-
-    const clear = () => {
-        setTyping("")
-    }
-
-    const deleteNum = () => {
-        const type2 = type.slice(0, -1)
-        setTyping(type2)
-    }
-
+const Inputter = ({ phoneNumber, clear, deleteNum, history, isActive, type }) => {
     return (
-        <div>
+        <div className = "wrapper">
             <div className={style.text}>
                 <h1>{type}</h1>
             </div>
@@ -84,4 +49,13 @@ function InputterPresenter() {
     );
 }
 
-export default InputterPresenter;
+Inputter.propTypes = {
+    phoneNumber : PropTypes.func,
+    clear : PropTypes.func,
+    deleteNum : PropTypes.func,
+    history : ReactRouterPropTypes.history,
+    isActive : PropTypes.bool,
+    type : PropTypes.string,
+};
+
+export default Inputter;
